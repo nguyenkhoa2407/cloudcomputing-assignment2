@@ -1,0 +1,42 @@
+---
+#
+# EECS 4287/5287: Principles of Cloud Computing
+# Author: Aniruddha Gokhale
+# Created: Fall 2017
+# Modified: Fall 2020
+#
+# This playbook is our demo master file
+# The goal is to show how to have a single master file which then
+# includes multiple plays according to some well-designed choreography
+#
+# One way to reuse existing playbooks is to simply import them as
+# import_playbook: <playbook>
+# I show this approach for actions I do on the local VM where I let the
+# playbook define the hosts: and other params
+# However for other plays, I show a different approach using import_tasks or
+# include_tasks statements.
+#
+# The import_* statements are statically included and parsed while include_*
+# are dynamically included as the playbook executes. Thus, errors can be found
+# only when the task gets included at runtime. However, there are advantages
+# of including vs importing because a runtime value of variables may define
+# runtime behavior as opposed to a static inclusion.
+#
+# See https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html for
+# detailed explanation
+#
+
+#####################################################
+### Play 1: Specify ufw restrictions
+#####################################################
+- import_playbook: playbook_ufw_specifications_cloud_vm.yml
+- import_playbook: playbook_download_kafka_binary_cloud_vm.yml
+- import_playbook: playbook_kafka_server_properties_cloud_vm_with_zookeeper.yml
+- import_playbook: playbook_kafka_server_properties_cloud_vm_no_zookeeper.yml
+- import_playbook: playbook_copy_consumer_file_to_cloud_vm_2.yml
+
+
+
+- import_playbook: playbook_start_server_and_zookeeper_cloud_vm_1.yml
+...
+

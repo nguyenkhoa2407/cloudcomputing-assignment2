@@ -1,0 +1,10 @@
+- hosts: [MyChameleonVM2] # VM2, with no zookeeper
+  remote_user:  cc    # change username depending on what it is on the cloud
+  collections:   # this is new starting with Ansible 2.9 (akin to importing package)
+    - openstack.cloud
+
+  tasks:
+  - name: update config/server.properties for VM with NO zookeeper
+    copy:
+      src: /home/khoa/cloudcomputing/assignment2/no_zookeeper/server.properties
+      dest: /home/cc/kafka_2.13-2.6.0/config/server.properties

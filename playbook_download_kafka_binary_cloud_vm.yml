@@ -1,0 +1,11 @@
+- hosts: [MyChameleonVMs] # both machines
+  remote_user:  cc    # change username depending on what it is on the cloud
+  collections:   # this is new starting with Ansible 2.9 (akin to importing package)
+    - openstack.cloud
+
+  tasks:
+  - name: download and extract kafka binaries
+    shell: |
+      wget "http://mirror.metrocast.net/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz"
+      tar -xzvf kafka_2.13-2.6.0.tgz
+      
