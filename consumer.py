@@ -19,7 +19,7 @@ from kafka import KafkaConsumer  # consumer of events
 
 import couchdb
 import json
-couch = couchdb.Server('http://aryar-khoa:khoa@129.114.25.94:5984/')
+couch = couchdb.Server('http://aryar-khoa:khoa@129.114.26.89:5984/')
 db = couch['cloudcompute']
 
 

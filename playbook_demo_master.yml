@@ -36,7 +36,7 @@
 - import_playbook: playbook_copy_consumer_file_to_cloud_vm_2.yml
 
 
-
-- import_playbook: playbook_start_server_and_zookeeper_cloud_vm_1.yml
+# import couchdb playbook
+# import playbook to start server and zookeeper
 ...
 

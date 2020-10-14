@@ -9,7 +9,6 @@
       cd /home/cc/kafka_2.13-2.6.0
       bin/zookeeper-server-start.sh config/zookeeper.properties
 
-    # add this line later, but now will start server manually to see input
     # bin/kafka-server-start.sh config/server.properties
 
       
